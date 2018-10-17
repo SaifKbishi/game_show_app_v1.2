@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   function addPhraseToDisplay(arr){
     for(let i=0; i < arr.length; i+=1){
         const li = document.createElement('li');
-        if(arr[i] == ' '){          
+        if(arr[i] == ' '){
           li.innerHTML = '&nbsp &nbsp';
             ul.appendChild(li);
         }else{
@@ -67,11 +67,12 @@ keyboard.addEventListener('click', (e)=> {
     e.target.classList.add('chosen');
     e.target.disabled = true;
     letterFound = checkLetter(clickedbtn);
+    if(letterFound === null){
+      hearts[missed].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px">';
+      missed++;
+    }
   }
-  if(letterFound === null){
-    hearts[missed].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px">';
-    missed++;
-  }
+
   checkWin();
 });
 
